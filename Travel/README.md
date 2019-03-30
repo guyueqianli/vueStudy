@@ -19,3 +19,6 @@ npm run build --report
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+# 安装第三方库 -- 解决移动端中 300毫秒点击延迟问题（在某些机型、浏览器下，click点击事件有延迟）
+npm install fastclick --save
