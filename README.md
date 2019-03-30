@@ -1,2 +1,2 @@
-# vueTest
-vue 学习 Demo
+# vueStudy
+vue 学习相关的项目
