@@ -23,6 +23,9 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 # 安装第三方库 -- 解决移动端中 300毫秒点击延迟问题（在某些机型、浏览器下，click点击事件有延迟）
 npm install fastclick --save
 
-# 
+# stylus 插件
 npm install stylus --save
 npm install stylus-loader --save
+
+# 轮播图插件 vue-awesome-swiper 安装 2.6.7版本
+npm install vue-awesome-swiper@2.6.7 --save
