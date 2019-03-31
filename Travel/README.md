@@ -29,3 +29,6 @@ npm install stylus-loader --save
 
 # 轮播图插件 vue-awesome-swiper 安装 2.6.7版本
 npm install vue-awesome-swiper@2.6.7 --save
+
+# axios 发送 ajax 请求
+npm install axios --save
