@@ -32,3 +32,11 @@ npm install vue-awesome-swiper@2.6.7 --save
 
 # axios 发送 ajax 请求
 npm install axios --save
+
+# iscroll 的一个封装
+npm install better-scroll --save
+
+# vuex 安装
+npm install vuex --save
+
+

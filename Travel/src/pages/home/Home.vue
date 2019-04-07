@@ -1,6 +1,6 @@
 <template>
   <div>
-    <home-header :city="city"></home-header>
+    <home-header></home-header>
     <home-swiper :list="swiperList"></home-swiper>
     <home-icons :list="iconList"></home-icons>
     <home-recommend :list="recommendList"></home-recommend>
@@ -15,17 +15,9 @@ import HomeIcons from './components/Icons'
 import HomeRecommend from './components/Recommend'
 import HomeWeekend from './components/Weekend'
 import axios from 'axios'
+import { mapState } from 'vuex'
 export default {
   name: 'Home',
-  data: function() {
-    return {
-      city: '',
-      swiperList: [],
-      iconList: [],
-      recommendList: [],
-      weekendList: []
-    }
-  },
   components: {
     HomeHeader,
     HomeSwiper,
@@ -33,27 +25,46 @@ export default {
     HomeRecommend,
     HomeWeekend
   },
-  mounted () {
-    this.getHomeInfo()
+  data: function() {
+    return {
+      lastCity: '',
+      swiperList: [],
+      iconList: [],
+      recommendList: [],
+      weekendList: []
+    }
+  },
+  computed: {
+    ...mapState(['city'])
   },
   methods: {
     getHomeInfo () {
       // 接口转发方式，配置见 config 下的 index.js 里的 proxyTable
       // axios.get('/api/index.json')
-      axios.get('/static/mock/index.json')
+      axios.get('/static/mock/index.json?city=' + this.city)
         .then(this.getHomeInfoSucc)
     },
     getHomeInfoSucc (res) {
       res = res.data
-      if(res.errno === 0 && res.data) {
+      if (res.errno === 0 && res.data) {
         const data = res.data
-        this.city = data.city
         this.swiperList = data.swiperList
         this.iconList = data.iconList
         this.recommendList = data.recommendList
         this.weekendList = data.weekendList
       }
     }
+  },
+  mounted () {
+    this.lastCity = this.city
+    this.getHomeInfo()
+  },
+  activated () {
+    if(this.lastCity !== this.city) {
+      this.lastCity = this.city
+      this.getHomeInfo()
+    }
+
   }
 }
 </script>
