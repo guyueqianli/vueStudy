@@ -41,7 +41,9 @@ export default {
     getHomeInfo () {
       // 接口转发方式，配置见 config 下的 index.js 里的 proxyTable
       // axios.get('/api/index.json')
-      axios.get('/static/mock/index.json?city=' + this.city)
+      // axios.get('/static/mock/index.json?city=' + this.city)
+      // mock 资源里的路径
+      axios.get('/travel/static/mock/index.json?city=' + this.city)
         .then(this.getHomeInfoSucc)
     },
     getHomeInfoSucc (res) {
